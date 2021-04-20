@@ -12,14 +12,20 @@ addButton.addEventListener('click', function(){
         important: false
     };
 
-        todoList.push(newTodo);
-    });
+    todoList.push(newTodo);
+    displayMessages();
+});
 
 function displayMessages(){
-
+    let displayMessage = '';
     todoList.forEach(function(item, i){
-        let displayMessage = `Our task: ${addMessage.value}`;
-        console.log('displayMessage: ', displayMessage)
+        displayMessage += `
+        <li>
+            <input type='checkbox' id='item_${i}'>
+            <label for='item_${i}'>${item.todo}</label>
+        </li>
+        `;
+        todo.innerHTML = displayMessage
     });
 
 }
